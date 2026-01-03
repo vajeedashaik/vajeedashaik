@@ -1,5 +1,10 @@
+<!-- ======================= BANNER ======================= -->
+<p align="center">
+  <img 
+    src="https://capsule-render.vercel.app/api?type=waving&color=0:0e75b6,100:22c55e&height=180&section=header&text=Hi%20I%20Am%20Vajeeda&fontSize=32&fontColor=ffffff&animation=fadeIn"
+  />
+</p>
 <!-- ======================= HEADER ======================= -->
-<h1 align="center">Hi, I'm Vajeeda Shaik 👋</h1>
 <h3 align="center">CS Student • Full Stack Developer • Computer Vision Explorer</h3>
 
 <p align="center">
@@ -87,24 +92,11 @@ I’m driven by curiosity, clean design, and solving real-world problems through
 
 ## 📊 GitHub Stats
 
-<p align="center">
-  <img
-    src="https://github-readme-stats.vercel.app/api?username=vajeedashaik&show_icons=true&theme=github_dark&hide_border=true"
-    alt="Vajeeda's GitHub Stats"
-  />
-</p>
 
 <p align="center">
   <img
     src="https://github-readme-streak-stats.herokuapp.com?user=vajeedashaik&theme=github-dark&hide_border=true"
     alt="GitHub Streak"
-  />
-</p>
-
-<p align="center">
-  <img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=vajeedashaik&layout=compact&theme=github_dark&hide_border=true"
-    alt="Top Languages"
   />
 </p>
 
