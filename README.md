@@ -29,11 +29,14 @@ I’m driven by curiosity, clean design, and solving real-world problems through
 
 ## ✨ What I’m Currently Focused On
 
-- ⚙️ Building scalable **React & Next.js** applications  
-- 👁️ Exploring **Computer Vision** (OpenCV, detection pipelines, data preprocessing)  
-- ☁️ Learning **cloud & deployment workflows**  
-- 📊 Working with **databases, APIs, and authentication systems**  
-- 🎨 Crafting clean, user-friendly **frontend experiences**
+| Area | What I’m Working On | Tools & Tech |
+|------|--------------------|-------------|
+| ⚙️ Full Stack Development | Building scalable, end-to-end web applications | React, Next.js, Node.js, Express |
+| 👁️ Computer Vision | Object detection, image preprocessing, and CV pipelines | OpenCV, Python, NumPy |
+| ☁️ Cloud & Deployment | Deploying and managing production-ready applications | Netlify, Vercel, Cloud basics |
+| 🔐 Backend & APIs | REST APIs, authentication, and database integration | Flask, Supabase, PostgreSQL |
+| 🎨 Frontend Design | Creating clean, responsive, user-centric interfaces | Tailwind CSS, Figma |
+| 📊 Data & AI | Exploring ML models and data-driven problem solving | Pandas, scikit-learn |
 
 ---
 
