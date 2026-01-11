@@ -90,17 +90,6 @@ I’m driven by curiosity, clean design, and solving real-world problems through
 
 ---
 
-## 📊 GitHub Stats
-
-
-<p align="center">
-  <img
-    src="https://github-readme-streak-stats.herokuapp.com?user=vajeedashaik&theme=github-dark&hide_border=true"
-    alt="GitHub Streak"
-  />
-</p>
-
----
 
 ## 🌐 Let’s Connect
 
