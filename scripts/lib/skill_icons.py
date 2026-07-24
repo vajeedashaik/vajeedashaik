@@ -1,14 +1,18 @@
-"""Maps skill names (as written in user.yml -> skills) to simple-icons
-slugs (https://simpleicons.org), for rendering real brand-colored logos
-next to skill tags instead of plain bracketed text.
+"""Maps skill names (as written in user.yml -> skills) to keys in
+scripts/lib/icon_paths.py, for rendering real brand-colored logos next to
+skill tags instead of plain bracketed text.
 
 Compound labels ("XGBoost / LightGBM / CatBoost", "Node.js / Express")
 intentionally have no entry — one icon can't represent three tools, so
-those chips just render text-only. Add an entry here any time you add a
-skill whose name matches a simple-icons slug 1:1.
+those chips just render text-only. "Microsoft Azure" and "VS Code" are
+also text-only: simple-icons doesn't publish those under any slug this
+file's fetch script could find. Add an entry here any time you add a
+skill with a clean 1:1 icon — see docs/CUSTOMIZATION.md.
 """
 
 from __future__ import annotations
+
+from .icon_paths import ICONS
 
 SKILL_ICON_SLUGS: dict[str, str] = {
     "Python": "python",
@@ -26,16 +30,16 @@ SKILL_ICON_SLUGS: dict[str, str] = {
     "TensorFlow": "tensorflow",
     "OpenCV": "opencv",
     "Scikit-learn": "scikitlearn",
-    "Microsoft Azure": "microsoftazure",
     "PostgreSQL": "postgresql",
     "MySQL": "mysql",
     "Docker": "docker",
     "Kubernetes (basics)": "kubernetes",
     "Terraform (basics)": "terraform",
-    "VS Code": "visualstudiocode",
     "Postman": "postman",
     "Jupyter Notebook": "jupyter",
 }
+
+assert all(slug in ICONS for slug in SKILL_ICON_SLUGS.values()), "SKILL_ICON_SLUGS references a slug missing from icon_paths.ICONS"
 
 
 def slug_for(skill_name: str) -> str | None:

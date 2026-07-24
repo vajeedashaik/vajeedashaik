@@ -28,6 +28,7 @@ from lib.ascii_art import MODE_STYLES, ascii_grid_svg, image_to_ascii, load_sour
 from lib.blockfont import HEIGHT as BLOCK_HEIGHT  # noqa: E402
 from lib.blockfont import render_word  # noqa: E402
 from lib.data import load_config, load_user, write_svg  # noqa: E402
+from lib.icon_paths import icon_svg  # noqa: E402
 from lib.skill_icons import slug_for  # noqa: E402
 from lib.svgutil import document, esc, wrap_text  # noqa: E402
 from lib.theme import ACCENT_CYCLE, aurora_gradient_defs, aurora_layer, glass_filter_defs  # noqa: E402
@@ -43,7 +44,7 @@ OUTER_PAD = 80  # margin around the floating terminal panel where the colorful a
 # by URL, so repeating slugs across many particles costs nothing extra.
 PARTICLE_ICON_SLUGS = [
     "c", "cplusplus", "python", "javascript", "typescript",
-    "react", "nextdotjs", "tailwindcss", "html5", "css3",
+    "react", "nextdotjs", "tailwindcss", "html5", "css",
     "nodedotjs", "express", "flask", "mysql", "postgresql", "supabase",
     "opencv", "tensorflow", "pytorch", "numpy", "pandas",
     "git", "github", "docker", "netlify", "vercel",
@@ -100,12 +101,13 @@ def _particles_svg(points: list[tuple[float, float, float, float]], seed: int) -
     out = []
     for i, (x, y, size, delay) in enumerate(points):
         slug = order[i % len(order)]
+        icon = icon_svg(slug, x - size / 2, y - size / 2, size)
+        if not icon:
+            continue
         out.append(
             f'<g style="animation: driftX {6+i%5}s ease-in-out {delay:.2f}s infinite alternate;">'
-            f'<image x="{x-size/2:.1f}" y="{y-size/2:.1f}" width="{size:.1f}" height="{size:.1f}" '
-            f'href="https://cdn.simpleicons.org/{slug}" '
-            f'style="animation: floatY {5+i%6*0.6:.1f}s ease-in-out {delay:.2f}s infinite, '
-            f'twinkle {2.6+i%4*0.4:.1f}s ease-in-out {delay:.2f}s infinite;"/>'
+            f'<g style="animation: floatY {5+i%6*0.6:.1f}s ease-in-out {delay:.2f}s infinite, '
+            f'twinkle {2.6+i%4*0.4:.1f}s ease-in-out {delay:.2f}s infinite;">{icon}</g>'
             f'</g>'
         )
     return "".join(out)
@@ -181,7 +183,6 @@ def build() -> str:
     ac = cfg["ascii_portrait"]
     mode = ac.get("mode", "terminal")
     style = MODE_STYLES.get(mode, MODE_STYLES["terminal"])
-    vc = cfg["visitor_counter"]
 
     # ---- pre-compute widths so the canvas fits banner + portrait side by side
     first_name = ident["short_name"]
@@ -270,8 +271,15 @@ def build() -> str:
     body_wrap_chars = max(50, int(CONTENT_W / (BODY_FONT * 0.54)))
 
     # =====================================================================
-    # Section: whoami.txt (header tagline + short bio + profile views)
+    # Section: whoami.txt (header tagline + short bio)
     # =====================================================================
+    # NOTE: the profile-views counter used to live here as an <image>, but
+    # GitHub serves committed SVGs with a CSP that blocks them from loading
+    # ANY external resource at view time — so a *live* badge can never work
+    # embedded inside our SVG (baking icons in as inline <path> data fixes
+    # static logos, but a view counter has to change on every view, so
+    # there's nothing to bake in). It's rendered directly in README.md
+    # instead — see build_readme.py.
     parts.append(prompt_line(PAD_X, y, "cat whoami.txt", 1.1, accents.next()))
     y += 30
     parts.append(f'<text x="{PAD_X}" y="{y}" class="h3">{esc(ident["header_tagline"])}</text>')
@@ -279,23 +287,7 @@ def build() -> str:
     for line in wrap_text(ident["short_bio"], body_wrap_chars):
         parts.append(f'<text x="{PAD_X}" y="{y}" class="italic">{esc(line)}</text>')
         y += 22
-    y += 14
-    counter_h = 20
-
-    def counter_url(color: str) -> str:
-        return (
-            f"https://komarev.com/ghpvc/?username={username}&label=Profile%20Views"
-            f"&color={color}&style={vc['style']}"
-        )
-
-    parts.append(f"""
-    <g class="toggle-light">
-      <image x="{PAD_X}" y="{y}" height="{counter_h}" href="{esc(counter_url(vc['light_color']))}"/>
-    </g>
-    <g class="toggle-dark">
-      <image x="{PAD_X}" y="{y}" height="{counter_h}" href="{esc(counter_url(vc['dark_color']))}"/>
-    </g>""")
-    y += counter_h + GAP
+    y += GAP - 8
 
     # =====================================================================
     # Section: about.md
@@ -560,10 +552,7 @@ def build_stack_block(skills: dict, x0: float, y0: float, content_w: float) -> t
             tx = x + 12
             if slug:
                 icon_y = row_top + (CHIP_H - ICON_SIZE) / 2
-                chip.append(
-                    f'<image x="{tx:.1f}" y="{icon_y:.1f}" width="{ICON_SIZE}" height="{ICON_SIZE}" '
-                    f'href="https://cdn.simpleicons.org/{slug}"/>'
-                )
+                chip.append(icon_svg(slug, tx, icon_y, ICON_SIZE))
                 tx += ICON_SIZE + 8
             chip.append(f'<text x="{tx:.1f}" y="{baseline:.1f}" class="chip-text" style="fill:var(--{color})">{esc(name)}</text>')
             svg.append("".join(chip))

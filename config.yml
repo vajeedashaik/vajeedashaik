@@ -53,9 +53,13 @@ typography:
 
 features:
   # The profile is one asset: assets/svg/terminal.svg (see
-  # generate_terminal.py + build_readme.py). This is the only toggle left —
-  # set it false to ship an empty README instead.
+  # generate_terminal.py + build_readme.py), plus a live profile-views
+  # counter rendered directly in README.md (see visitor_counter: below —
+  # it can't live inside the SVG, GitHub blocks SVGs from loading external
+  # resources at view time, and a *live* counter needs a real image load
+  # on every view).
   terminal: true
+  visitor_counter: true
 
 ascii_portrait:
   source_image: "assets/img/profile.jpg"   # drop your photo here

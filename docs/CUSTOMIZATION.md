@@ -98,8 +98,28 @@ it's kept for a possible future proficiency-bar view). Category headers
 map via `GROUP_LABELS` in `scripts/generate_terminal.py`. Each skill
 renders as a chip with a real brand icon if one is mapped in
 `scripts/lib/skill_icons.py`; unmapped names (or compound labels like
-"XGBoost / LightGBM / CatBoost") render text-only. Add an entry there any
-time you add a skill with a clean 1:1 [simpleicons.org](https://simpleicons.org) slug.
+"XGBoost / LightGBM / CatBoost") render text-only.
+
+**Icons are baked in as inline vector paths, not loaded from a URL at
+view time** — `scripts/lib/icon_paths.py` holds a static `ICONS` dict of
+`{slug: {viewbox, color, path}}`, fetched once from
+[simpleicons.org](https://simpleicons.org)'s CDN and committed to the
+repo. This is required, not a stylistic choice: GitHub serves committed
+SVG files with a Content-Security-Policy that blocks them from loading
+*any* external resource once rendered on github.com, so an
+`<image href="https://cdn.simpleicons.org/...">` inside our SVG shows up
+as a broken placeholder there even though it can load fine when the raw
+file is previewed elsewhere. The particle-effect logos
+(`PARTICLE_ICON_SLUGS` in `generate_terminal.py`) and the skill chips
+both go through the same `icon_svg()` helper in `icon_paths.py`.
+
+To add a new icon: fetch it once (`curl -A "curl/8" https://cdn.simpleicons.org/<slug>`),
+pull the `viewBox`, `fill`, and `<path d="...">` out of the response, and
+add a `"<slug>": {...}` entry to `ICONS`. Then reference that slug from
+`skill_icons.py` and/or `PARTICLE_ICON_SLUGS`. A handful of common tools
+(Microsoft Azure, VS Code) don't publish under any slug this approach
+could find, so those currently render text-only — same graceful fallback
+as any other unmapped name.
 
 ## Currently-focused-on table
 
