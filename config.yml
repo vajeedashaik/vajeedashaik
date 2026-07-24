@@ -1,0 +1,69 @@
+# =============================================================================
+# config.yml — THEME & FEATURE TOGGLES
+# =============================================================================
+# Personal data lives in user.yml. This file controls how it's *rendered*:
+# colors, typography, ASCII-portrait settings. See docs/CUSTOMIZATION.md.
+# =============================================================================
+
+output:
+  svg_dir: "assets/svg"
+
+github:
+  # Profile READMEs live in a repo named exactly after your username.
+  # Update this if you forked/renamed the repo.
+  repo: "vajeedashaik/vajeedashaik"
+  branch: "main"
+
+theme:
+  # generate_terminal.py emits BOTH palettes into the SVG via
+  # <style>@media (prefers-color-scheme: dark){ ... }</style>, so the profile
+  # follows the viewer's GitHub theme automatically. No JS involved — GitHub
+  # SVGs can't react to clicks, only to the viewer's OS/GitHub color scheme.
+  # Four fixed accents per mode — blue, purple, teal, pink — enough
+  # variety across sections/tags/gradients without reading as "rainbow".
+  dark:
+    bg: "#0b0d12"
+    bg_alt: "#12151c"
+    surface: "rgba(255,255,255,0.06)"
+    border: "rgba(255,255,255,0.14)"
+    text_primary: "#f2f4f8"
+    text_secondary: "#9aa1b0"
+    accent_blue: "#5b8cff"
+    accent_purple: "#b57bff"
+    accent_teal: "#2dd4bf"
+    accent_pink: "#ff6fc4"
+    glow: "#5b8cff"
+  light:
+    bg: "#f7f7fa"
+    bg_alt: "#ececf2"
+    surface: "rgba(15,23,42,0.05)"
+    border: "rgba(15,23,42,0.14)"
+    text_primary: "#14161a"
+    text_secondary: "#565d6b"
+    accent_blue: "#2563eb"
+    accent_purple: "#9333ea"
+    accent_teal: "#0f9488"
+    accent_pink: "#db2777"
+    glow: "#2563eb"
+  gradient_stops: ["accent_blue", "accent_purple", "accent_teal", "accent_pink"]
+
+typography:
+  font_family: "'Segoe UI', ui-sans-serif, system-ui, -apple-system, sans-serif"
+  mono_family: "'Cascadia Code', 'SF Mono', ui-monospace, 'Courier New', monospace"
+
+features:
+  # The profile is one asset: assets/svg/terminal.svg (see
+  # generate_terminal.py + build_readme.py). This is the only toggle left —
+  # set it false to ship an empty README instead.
+  terminal: true
+
+ascii_portrait:
+  source_image: "assets/img/profile.jpg"   # drop your photo here
+  columns: 64                               # ASCII grid width
+  charset: " .:-=+*#%@"                     # dark -> light ramp
+  mode: "terminal"                          # normal | wireframe | matrix | terminal | pixel
+
+visitor_counter:
+  style: "flat"
+  dark_color: "5b8cff"
+  light_color: "2563eb"

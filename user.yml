@@ -1,0 +1,281 @@
+# =============================================================================
+# user.yml — YOUR PERSONAL DATA
+# =============================================================================
+# Everything in this file feeds the generators in scripts/. Edit it, push to
+# main, and the "Generate Profile Assets" workflow rebuilds every SVG + the
+# README automatically. See docs/CUSTOMIZATION.md for field-by-field notes.
+# =============================================================================
+
+identity:
+  name: "Vajeeda Shaik"
+  short_name: "Vajeeda"
+  role: "AI/ML Engineer · Cloud & Data Engineer · Full-Stack Developer"
+  tagline: "Building AI-powered products. Designing scalable cloud-native systems. Shipping production software."
+  location: "Chennai, India"
+  # open | freelance | closed  (drives the availability pill in the hero)
+  availability: "open"
+  availability_label: "Open to SWE / ML Engineer roles"
+  email: "vajeeda.mastan@gmail.com"
+  github_username: "vajeedashaik"
+  education: "B.Tech, Computer Science (Cloud Computing) — SRM IST (KTR), 2023–Present"
+  # Shown under the big block-letter name banner in the terminal profile.
+  banner_tagline: "Full Stack • AI • Machine Learning"
+  # Shown as a "$ cat whoami.txt" block right after the banner+portrait row.
+  header_tagline: "CS Student • Full Stack Developer • Computer Vision Explorer"
+  short_bio: "I build modern web apps, experiment with AI-powered systems, and turn ideas into real, usable products."
+
+links:
+  github: "https://github.com/vajeedashaik"
+  linkedin: "https://www.linkedin.com/in/vajeeda-shaik-344774279/"
+  portfolio: "https://vajeedaportfolio.vercel.app/"
+  email: "mailto:vajeeda.mastan@gmail.com"
+  # Leave blank to hide a link entirely.
+  twitter: ""
+  blog_rss: ""       # e.g. "https://vajeedaportfolio.vercel.app/rss.xml" — hidden if blank
+  spotify: ""         # novatorem/spotify-github-profile client id — hidden if blank
+
+workstation:
+  os: "Windows 11 + WSL2"
+  editor: "VS Code"
+  terminal: "Windows Terminal"
+  shell: "PowerShell / Bash"
+  favorite_stack: "Python · FastAPI · React · AWS"
+  current_goal: "Landing a full-time SWE/ML role & shipping agentic AI systems"
+  learning: "Distributed systems, MLOps, multi-agent RL"
+  status: "Available for full-time opportunities"
+
+typing_messages:
+  - "Building AI-powered products..."
+  - "Designing cloud-native systems..."
+  - "Training ML models..."
+  - "Automating multi-cloud infrastructure..."
+  - "Shipping production-grade software..."
+  - "Exploring distributed systems..."
+
+about:
+  intro: |
+    Hey! I'm **Vajeeda** — a Computer Science student specializing in
+    **Cloud Computing**, with a strong interest in **Full Stack Web
+    Development**, **Computer Vision**, and **AI-driven applications**.
+    I enjoy building end-to-end solutions — from **OCR-based reminder
+    systems** and **real-time traffic prediction models** to
+    **responsive, production-ready web apps**. I'm driven by curiosity,
+    clean design, and solving real-world problems through technology.
+  motto: "Always learning. Always building. Always improving."
+  footer_note: "Thanks for stopping by — feel free to explore my repositories"
+  facts:
+    - icon: "cloud"
+      text: "Shipped multi-cloud ML infra across AWS, Azure & GCP"
+    - icon: "brain"
+      text: "Built ensemble models (XGBoost/LightGBM/CatBoost) on 2.9M+ records"
+    - icon: "mic"
+      text: "Presented ML research at IEEE ICAFT 2025"
+    - icon: "trophy"
+      text: "Finalist — Meta × HuggingFace × PyTorch National Hackathon"
+    - icon: "cert"
+      text: "AWS, Azure & Google Cloud certified"
+    - icon: "coffee"
+      text: "Debugs best at 2am with too much coffee"
+
+# -----------------------------------------------------------------------------
+# "Currently focused on" table — rendered as a box-drawing terminal table.
+# -----------------------------------------------------------------------------
+focus_table:
+  - area: "Full Stack Dev"
+    working_on: "Building scalable, end-to-end web applications"
+    tools: "React, Next.js, Node.js, Express"
+  - area: "Computer Vision"
+    working_on: "Object detection, image preprocessing, CV pipelines"
+    tools: "OpenCV, Python, NumPy"
+  - area: "Cloud & Deployment"
+    working_on: "Deploying and managing production-ready applications"
+    tools: "AWS, GCP, Azure, Vercel"
+  - area: "Backend & APIs"
+    working_on: "REST APIs, authentication, database integration"
+    tools: "FastAPI, Flask, Supabase, PostgreSQL"
+  - area: "Frontend Design"
+    working_on: "Clean, responsive, user-centric interfaces"
+    tools: "Tailwind CSS, Figma"
+  - area: "Data & AI"
+    working_on: "ML models and data-driven problem solving"
+    tools: "Pandas, scikit-learn, XGBoost"
+
+# -----------------------------------------------------------------------------
+# Skills — grouped for the animated skill-bars SVG. level is 0-100.
+# -----------------------------------------------------------------------------
+skills:
+  languages:
+    - { name: "Python", level: 92 }
+    - { name: "SQL", level: 85 }
+    - { name: "Java", level: 72 }
+    - { name: "JavaScript", level: 75 }
+    - { name: "TypeScript", level: 65 }
+    - { name: "Bash", level: 70 }
+  frontend:
+    - { name: "React", level: 78 }
+    - { name: "Next.js", level: 74 }
+    - { name: "Tailwind CSS", level: 80 }
+    - { name: "HTML/CSS", level: 85 }
+  backend:
+    - { name: "FastAPI", level: 82 }
+    - { name: "Flask", level: 78 }
+    - { name: "Node.js / Express", level: 70 }
+    - { name: "REST APIs", level: 88 }
+    - { name: "Microservices", level: 75 }
+  ai_ml:
+    - { name: "Scikit-learn", level: 88 }
+    - { name: "XGBoost / LightGBM / CatBoost", level: 85 }
+    - { name: "PyTorch", level: 72 }
+    - { name: "TensorFlow", level: 68 }
+    - { name: "OpenCV", level: 80 }
+    - { name: "Optuna", level: 75 }
+  cloud:
+    - { name: "AWS (Lambda, S3, DynamoDB, Step Fn)", level: 85 }
+    - { name: "Google Cloud (Run, BigQuery, Firestore)", level: 80 }
+    - { name: "Microsoft Azure", level: 70 }
+    - { name: "Serverless Architecture", level: 85 }
+  databases:
+    - { name: "PostgreSQL", level: 82 }
+    - { name: "MySQL", level: 78 }
+    - { name: "DynamoDB / Firestore", level: 75 }
+    - { name: "Supabase / Firebase", level: 80 }
+  devops:
+    - { name: "Docker", level: 80 }
+    - { name: "Git / GitHub Actions", level: 88 }
+    - { name: "CI/CD", level: 82 }
+    - { name: "Kubernetes (basics)", level: 55 }
+    - { name: "Terraform (basics)", level: 55 }
+  tools:
+    - { name: "VS Code", level: 95 }
+    - { name: "Postman", level: 85 }
+    - { name: "Jupyter Notebook", level: 88 }
+
+# -----------------------------------------------------------------------------
+# Tech icon wall — simple-icons slugs (see https://simpleicons.org). Order
+# controls layout.
+# -----------------------------------------------------------------------------
+icon_wall:
+  - python
+  - java
+  - javascript
+  - typescript
+  - react
+  - nextdotjs
+  - tailwindcss
+  - fastapi
+  - flask
+  - nodedotjs
+  - docker
+  - kubernetes
+  - amazonwebservices
+  - googlecloud
+  - microsoftazure
+  - postgresql
+  - mysql
+  - supabase
+  - firebase
+  - git
+  - github
+  - pytorch
+  - tensorflow
+  - opencv
+  - scikitlearn
+  - numpy
+  - pandas
+  - jupyter
+
+# -----------------------------------------------------------------------------
+# Featured projects. status: live | completed | in-progress | archived
+# -----------------------------------------------------------------------------
+projects:
+  - name: "ReNotify"
+    subtitle: "Cloud-Native Smart Bill Reminder & OCR Automation"
+    description: "Serverless platform that OCRs bills via Google Vision, tracks warranties, and auto-generates reminders — cut manual effort by 70%."
+    stack: ["Google Vision OCR", "Supabase", "PostgreSQL", "REST APIs", "Serverless"]
+    status: "completed"
+    repo: "https://github.com/vajeedashaik/ReNotify_V1.git"
+    year: "2025"
+  - name: "MetaDebate"
+    subtitle: "Cloud-Native Multi-Agent AI Platform"
+    description: "Modular multi-agent platform where AI agents communicate over orchestrated microservices, with async task execution and experiment tracking."
+    stack: ["Python", "Docker", "REST APIs", "Microservices"]
+    status: "completed"
+    repo: "https://github.com/vajeedashaik/meta-content-moderator.git"
+    year: "2025"
+  - name: "CrisisCore"
+    subtitle: "Cloud-Based Emergency Response Coordination Platform"
+    description: "Backend platform coordinating real-time emergency data across distributed services with fault-tolerant, event-driven processing."
+    stack: ["Python", "FastAPI", "Docker", "PostgreSQL"]
+    status: "completed"
+    repo: "https://github.com/vajeedashaik/Crisis-Simulator.git"
+    year: "2025"
+  - name: "BovineID"
+    subtitle: "Bovine Breed Classification — Deep Learning Platform"
+    description: "End-to-end deep learning pipeline classifying 41 Indian cattle & buffalo breeds using VGG16 transfer learning."
+    stack: ["Python", "OpenCV", "VGG16", "Transfer Learning"]
+    status: "completed"
+    repo: "https://github.com/vajeedashaik/cattle-breed-classifier.git"
+    year: "2024"
+  - name: "Zillow ML"
+    subtitle: "Zestimate Error Prediction — Multi-Cloud MLOps Platform"
+    description: "Production multi-cloud ML platform over 2.9M+ property records; stacked ensemble hit a 5-fold CV RMSE of 0.0742."
+    stack: ["XGBoost", "LightGBM", "CatBoost", "AWS", "Azure", "GCP"]
+    status: "completed"
+    repo: "https://github.com/vajeedashaik/zillow_zestimate.git"
+    year: "2024"
+
+# -----------------------------------------------------------------------------
+# Experience — reverse chronological.
+# -----------------------------------------------------------------------------
+experience:
+  - role: "Software Engineering Intern"
+    org: "IntoAEC"
+    period: "2025"
+    points:
+      - "Built production-grade computer-vision workflows (Python + OpenCV) turning 2D floor plans into interactive 3D visualizations."
+      - "Developed backend automation for image preprocessing & validation, improving processing efficiency by ~50%."
+  - role: "Web Development Intern"
+    org: "Lean Impeccable Technologies"
+    period: "2024"
+    points:
+      - "Built and deployed full-stack web apps integrating REST APIs, SQL databases, and authentication."
+      - "Assisted deployment automation, testing, and continuous improvements across environments."
+
+# -----------------------------------------------------------------------------
+# Timeline — renders as an animated vertical SVG timeline.
+# -----------------------------------------------------------------------------
+timeline:
+  - year: "2023"
+    title: "Started B.Tech, CS (Cloud Computing)"
+    description: "Began my degree at SRM IST and started programming in earnest."
+  - year: "2024"
+    title: "First internship & first ML platforms"
+    description: "Web Dev Intern @ Lean Impeccable Technologies. Shipped BovineID and the Zillow multi-cloud MLOps platform."
+  - year: "2025"
+    title: "Cloud-native builds & research"
+    description: "SWE Intern @ IntoAEC. Shipped ReNotify, MetaDebate & CrisisCore. Presented at IEEE ICAFT 2025. Hackathon finalist (Meta × HuggingFace × PyTorch)."
+  - year: "2026"
+    title: "Deepening AI systems & agents"
+    description: "IBM SkillsBuild (AI Agents) + University of Maryland AI coursework. Building this profile."
+  - year: "Next"
+    title: "What's ahead"
+    description: "Full-time SWE / ML engineering roles — going deeper on distributed systems, MLOps, and agentic AI."
+
+certifications:
+  - "AWS Certified Solutions Architect – Associate"
+  - "AWS Certified Cloud Practitioner"
+  - "Microsoft Certified: Azure Data Fundamentals (DP-900)"
+  - "Google Cloud Digital Leader"
+
+achievements:
+  - "IEEE ICAFT 2025 Conference Presenter — \"Real-Time Traffic Prediction and Route Optimization Framework Using XATBoost Algorithm\""
+  - "Meta × HuggingFace × PyTorch National Hackathon Finalist — GRPO-based multi-agent RL platform"
+  - "IBM SkillsBuild — Build an AI Agent (2026)"
+  - "University of Maryland — AI and Career Empowerment (2026)"
+
+leadership:
+  - "HR Officer @ YUCI"
+  - "Tech Member @ NWC & IoT Alliance"
+  - "ACM SIGAPP Management Team"
+  - "DSA Operations Team"
+  - "Co-Speaker @ Agile Network India"

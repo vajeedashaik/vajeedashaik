@@ -1,0 +1,58 @@
+name: Generate Profile Assets
+
+# Rebuilds assets/svg/terminal.svg + README.md from config.yml / user.yml /
+# the profile photo, then commits the result. This is the core automation:
+# edit config, push, everything downstream regenerates itself.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "config.yml"
+      - "user.yml"
+      - "assets/img/**"
+      - "scripts/**"
+      - "requirements.txt"
+  schedule:
+    # Daily at 05:00 UTC — keeps the profile-views counter and any
+    # date-derived fields fresh even with zero commits.
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate-assets
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate assets + README
+        run: python scripts/generate_all.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/svg README.md
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "chore: regenerate profile assets [skip ci]"
+            git push
+          fi
